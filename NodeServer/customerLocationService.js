@@ -50,13 +50,15 @@ CustomerLocationService.prototype.GetCustomerForId = function (id) {
     return customer;
 };
 
-CustomerLocationService.prototype.Api.GetLocationForCustomer = function(request, response) {
-    if (request.method === 'GET') {
-        
+CustomerLocationService.prototype.Api = {
+    GetLocationForCustomer: function (request, response) {
+        if (request.method === 'GET') {
 
-        utilities.sendResponse(response, { 'Location': 'LONDON' });
-    } else {
-        utilities.sendResponse(response, 'Not Found', 404);
+
+            utilities.sendResponse(response, { 'Location': 'LONDON' });
+        } else {
+            utilities.sendResponse(response, 'Not Found', 404);
+        }
     }
 };
 

@@ -1,3 +1,25 @@
 {
-
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "skytestnodeserver",
+  "version": "1.0.0",
+  "description": "Node Server for Sky Test",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "mocha": "^3.5.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "SkyTest"
+  },
+  "keywords": [
+    "Sky"
+  ],
+  "author": "Jake Barrow",
+  "license": "ISC"
 }
