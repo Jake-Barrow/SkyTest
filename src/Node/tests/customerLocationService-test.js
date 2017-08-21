@@ -1,6 +1,6 @@
 
 var assert = require('assert');
-var CustomerLocationService = require('./../customerLocationService.js');
+var CustomerLocationService = require('../Services/customerLocationService.js');
 
 describe('CustomerLocationService', function () {
     var service;

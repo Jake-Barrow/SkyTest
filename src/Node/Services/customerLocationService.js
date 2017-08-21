@@ -1,7 +1,5 @@
 
 // customerLocationService.js
-var utilities = require('./utilities.js');
-
 function CustomerLocationService() {
 
 }
@@ -48,18 +46,6 @@ CustomerLocationService.prototype.GetCustomerForId = function (id) {
     }
 
     return customer;
-};
-
-CustomerLocationService.prototype.Api = {
-    GetLocationForCustomer: function (request, response) {
-        if (request.method === 'GET') {
-
-
-            utilities.sendResponse(response, { 'Location': 'LONDON' });
-        } else {
-            utilities.sendResponse(response, 'Not Found', 404);
-        }
-    }
 };
 
 module.exports = CustomerLocationService;

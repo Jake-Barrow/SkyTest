@@ -1,8 +1,6 @@
 ﻿
 
 // catalogueService.js
-var utilities = require('./utilities.js');
-
 function CatalogueService() {
 
 }
@@ -63,10 +61,6 @@ CatalogueService.prototype.GetChannelsForLocation = function (locationId) {
     }
 
     return channels;
-};
-
-CatalogueService.prototype.Api = {
-
 };
 
 module.exports = CatalogueService;

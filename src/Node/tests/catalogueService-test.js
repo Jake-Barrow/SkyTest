@@ -1,6 +1,6 @@
 ﻿
 var assert = require('assert');
-var CatalogueService = require('./../catalogueService.js');
+var CatalogueService = require('../Services/catalogueService.js');
 
 describe('CatalogueService', function () {
     var service;
