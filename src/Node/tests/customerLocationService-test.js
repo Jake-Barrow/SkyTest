@@ -14,8 +14,7 @@ describe('CustomerLocationService', function () {
         service = new CustomerLocationService();
         
         // Clear out the data for testing purposes
-        service.Customers = [];
-        service.Customers.push(testCustomer);
+        service.Customers = [testCustomer];
     });
 
     it('GetAllCustomers should not be undefined', function () {
