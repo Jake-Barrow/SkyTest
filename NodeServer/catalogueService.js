@@ -7,6 +7,15 @@ function CatalogueService() {
 
 }
 
+CatalogueService.prototype.Errors = {
+    InvalidLocationSupplied: 'Supplied location is not valid.'
+};
+
+CatalogueService.prototype.Locations = [
+    'LONDON',
+    'LIVERPOOL'
+];
+
 CatalogueService.prototype.Channels = [
     {
         Category: 'Sports',
@@ -34,5 +43,30 @@ CatalogueService.prototype.Channels = [
         Locations: []
     },
 ];
+
+CatalogueService.prototype.GetChannelsForLocation = function (locationId) {
+    if (locationId !== undefined && locationId !== '' && this.Locations.indexOf(locationId) === -1) {
+        return {
+            error: this.Errors.InvalidLocationSupplied
+        };
+    }
+
+    // This isn't exactly efficient, but with the smaller number of channels available it's acceptable.
+    var channels = [];
+
+    for (var i = 0; i < this.Channels.length; i++) {
+        var channel = this.Channels[i];
+
+        if (channel.Locations.length === 0 || channel.Locations.indexOf(locationId) !== -1) {
+            channels.push(channel);
+        }
+    }
+
+    return channels;
+};
+
+CatalogueService.prototype.Api = {
+
+};
 
 module.exports = CatalogueService;
