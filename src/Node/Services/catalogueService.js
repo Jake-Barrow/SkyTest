@@ -21,21 +21,25 @@ CatalogueService.prototype.Channels = [
         Locations: ['LONDON']
     },
     {
+        Id: 'E9CF1576-E884-4E53-A6D8-B34573FEB8F4',
         Category: 'Sports',
         Name: 'Chelsea TV',
         Locations: ['LONDON']
     },
     {
+        Id: 'DAB3436A-D7BC-4936-B2E7-37A1FE3298BF',
         Category: 'Sports',
         Name: 'Liverpool TV',
         Locations: ['LIVERPOOL']
     },
     {
+        Id: 'EF3E3347-EFCA-4228-BDE2-BA950B8A4DAE',
         Category: 'News',
         Name: 'Sky News',
         Locations: []
     },
     {
+        Id: '66F22FFA-C30C-45A3-ACB2-582F114BE06E',
         Category: 'News',
         Name: 'Sky Sports News',
         Locations: []

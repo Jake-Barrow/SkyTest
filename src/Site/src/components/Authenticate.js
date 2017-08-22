@@ -6,14 +6,16 @@ class Authenticate extends Component {
         super();
 
         this.state = { customers: [] };
+        this.continue = this.continue.bind(this);
     }
 
     componentDidMount() {
         var self = this;
-        $.get("http://localhost:8080/customers", {}, function (r) {
-
-            self.setState({ customers: JSON.parse(r) });
-
+        $.ajax("http://localhost:8080/customers", {
+            method: 'GET',
+            success: function (r) {
+                self.setState({ customers: JSON.parse(r) });
+            }
         });
     }
 
@@ -21,22 +23,17 @@ class Authenticate extends Component {
         var customerSelection = $('#customerSelection').val();
         var self = this;
 
+        $.ajax("http://localhost:8080/customerLocationService/getLocationForCustomer/" + customerSelection, {
+            method: 'GET',
+            success: function (r) {
+                var customer = JSON.parse(r);
 
-        //$.get("http://localhost:8080/authenticate/" + customerSelection, {}, function (authRes, x, y) {
-            $.ajax("http://localhost:8080/customerLocationService/getLocationForCustomer/" + customerSelection, {
-                method: 'GET',
-                xhrFields: { withCredentials: true },
-                crossDomain: true,
-                success: function (r) {
-                    var customer = JSON.parse(r);
-
-                    self.props.history.push({
-                        pathname: "/select-products",
-                        state: { location: customer.Location }
-                    });
-                }
-            });
-        //});
+                self.props.history.push({
+                    pathname: "/select-products",
+                    state: { location: customer.Location, customer: customer.Id }
+                });
+            }
+        });
     }
 
     render() {
@@ -54,14 +51,14 @@ class Authenticate extends Component {
         });
 
         return (
-            <div className='Authenticate'>
+            <div className='Authenticate container'>
                 <ul>{customers}</ul>
                 <div className='SelectCustomer'>
                     <p>Please select a customer to continue:</p>
-                    <select id='customerSelection'>
+                    <select id='customerSelection' className='form-control'>
                         {customersOptions}
                     </select>
-                    <button type='button' onClick={() => { this.continue(this); }}>
+                    <button type='button' className='btn btn-success' onClick={() => { this.continue(this); }}>
                         Continue
                     </button>
                 </div>
