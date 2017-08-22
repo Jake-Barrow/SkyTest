@@ -19,6 +19,7 @@ class SelectProducts extends Component {
 
         $.ajax("http://localhost:8080/catalogueService/getChannelsForLocation/" + locale, {
             method: 'GET',
+            crossDomain: true,
             success: function (r) {
                 self.setState({
                     location: locale,
@@ -80,7 +81,7 @@ class SelectProducts extends Component {
             var isInSelected = $.grep(self.state.selectedChannels, function (s, k) {
                 return item.Id === s.Id;
             }).length > 0;
-            
+
             if (isInSelected)
                 item.Selected = true;
             else
@@ -91,23 +92,32 @@ class SelectProducts extends Component {
 
         return (
             <div className='SelectProducts container'>
-                Selected Location: <b>{this.state.location}</b>
+                <div className='Location'>
+                    Selected Location: <b>{this.state.location}</b>
+                </div>
                 <div className='row'>
-                    <ChannelList category='Sports' channels={sportsChannels} onchange={this.onChannelSelectionChanged} />
-                    <ChannelList category='News' channels={newsChannels} onchange={this.onChannelSelectionChanged} />
-                    <div className='Basket col-md-3'>
-                        <ul>
-                            {this.state.selectedChannels.map(function (item, i) {
-                                return (
-                                    <li key={i}>
-                                        {item.Name}
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                        <button type='button' className='btn btn-success' onClick={this.confirm}>
-                            Confirm Purchase
-                        </button>
+                    <div className='col-md-4'>
+                        <ChannelList category='Sports' channels={sportsChannels} onchange={this.onChannelSelectionChanged} />
+                    </div>
+                    <div className='col-md-4'>
+                        <ChannelList category='News' channels={newsChannels} onchange={this.onChannelSelectionChanged} />
+                    </div>
+                    <div className='col-md-4'>
+                        <div className='Basket'>
+                            <span className='Basket-Title'>Checkout Basket</span>
+                            <ul>
+                                {this.state.selectedChannels.map(function (item, i) {
+                                    return (
+                                        <li key={i}>
+                                            {item.Name}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                            <button type='button' className='btn btn-success' onClick={this.confirm}>
+                                Confirm Purchase
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,1 +1,1 @@
-npm run test2
+npm run test

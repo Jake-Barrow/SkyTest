@@ -3,20 +3,18 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
-import Authenticate from './components/Authenticate';
-import SelectProducts from './components/SelectProducts';
-import Confirmation from './components/Confirmation';
-
-import './App.css';
+import Header from './header/Header';
+import Authenticate from './Authenticate';
+import SelectProducts from './SelectProducts';
+import Confirmation from './Confirmation';
+import Footer from './footer/Footer';
 
 class App extends Component {
     render() {
         return (
             <BrowserRouter>
                 <div className='App'>
-                    <header>
-                        This is my website!
-                    </header>
+                    <Header />
 
                     <main>
                         <Route exact path="/" component={Authenticate} />
@@ -24,9 +22,7 @@ class App extends Component {
                         <Route path="/confirmation" component={Confirmation} />
                     </main>
 
-                    <footer>
-                        Your copyright message
-                    </footer>
+                    <Footer />
                 </div>
             </BrowserRouter>
         );

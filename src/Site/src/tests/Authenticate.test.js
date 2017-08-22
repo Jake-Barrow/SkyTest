@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Route } from 'react-router';
-import { BrowserRouter, history } from 'react-router-dom';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';

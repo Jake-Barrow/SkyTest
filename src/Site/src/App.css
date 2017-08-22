@@ -1,24 +1,248 @@
-.App {
-  text-align: center;
+
+body {
+    font-family: Verdana;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+header {
+    height: 130px;
+    padding: 20px 0 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d9d9d9;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    header .logo {
+        width: 100px;
+        height: 63px;
+    }
+
+    header .nav {
+    }
+
+        header .nav ul {
+            list-style-type: none;
+            margin: 10px 0 0;
+            padding: 0;
+        }
+
+        header .nav li {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+            header .nav li:hover {
+                text-decoration: underline;
+                color: #0070a5;
+            }
+
+            header .nav li.right {
+                float: right;
+            }
+
+                header .nav li.right:hover {
+                    text-decoration: none;
+                    color: black;
+                    cursor: default;
+                }
+
+.Authenticate {
+    text-align: center;
 }
 
-.App-intro {
-  font-size: large;
+    .Authenticate ul {
+        list-style-type: none;
+        font-size: 8pt;
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .Authenticate .SelectCustomer {
+        margin: 10px auto;
+    }
+
+        .Authenticate .SelectCustomer select {
+            width: auto;
+            margin: 10px auto;
+        }
+
+.SelectProducts {
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    .SelectProducts .Location {
+        margin: 10px 0 30px;
+    }
+
+    .SelectProducts .ChannelList {
+        border: 1px solid #d9d9d9;
+        box-shadow: #d9d9d9 0 0 20px -3px;
+        border-radius: 15px;
+        padding: 10px 5px;
+    }
+
+        .SelectProducts .ChannelList p {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14pt;
+        }
+
+    .SelectProducts .Category {
+    }
+
+        .SelectProducts .Category ul {
+            padding: 0 10px;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .SelectProducts .Category li {
+        }
+
+            .SelectProducts .Category li label {
+                font-weight: normal;
+            }
+
+                .SelectProducts .Category li label input {
+                    display: inline-block;
+                    margin-top: 3px;
+                }
+
+                .SelectProducts .Category li label span {
+                    display: inline-block;
+                    margin-left: 10px;
+                }
+
+    .SelectProducts .Basket {
+        border: 1px solid #d9d9d9;
+        box-shadow: #d9d9d9 0 0 20px -3px;
+        border-radius: 15px;
+        padding: 10px 5px;
+    }
+
+        .SelectProducts .Basket .Basket-Title {
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14pt;
+        }
+
+        .SelectProducts .Basket ul {
+            list-style-type: none;
+            padding: 0 40px;
+            margin: 0 0 30px;
+        }
+
+            .SelectProducts .Basket ul li {
+                text-align: right;
+                padding: 5px 0;
+            }
+
+        .SelectProducts .Basket button {
+            display: block;
+            width: auto;
+            margin: 0 auto;
+        }
+
+.Confirmation {
+    border: 1px solid #d9d9d9;
+    border-radius: 15px;
+    padding: 10px 20px;
+    box-shadow: #d9d9d9 0 0 20px -3px;
 }
+
+    .Confirmation .Customer {
+        display: block;
+        text-align: right;
+        margin-bottom: 20px;
+        font-size: 12pt;
+        vertical-align: middle;
+    }
+
+        .Confirmation .Customer span {
+            font-size: 9pt;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 0 10px;
+        }
+
+    .Confirmation .Products {
+        border-top: 1px solid #d9d9d9;
+        padding: 20px 0 0;
+        display: block;
+        font-size: 12pt;
+        text-align: right;
+    }
+
+    .Confirmation ul {
+        list-style-type: none;
+        margin: 15px 0 20px;
+        padding: 0;
+    }
+
+        .Confirmation ul li {
+            text-align: right;
+            padding: 5px 0;
+        }
+
+    .Confirmation .Price {
+        border-top: 1px solid #d9d9d9;
+        display: block;
+        text-align: right;
+        padding: 20px 0;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+        .Confirmation .Price .PriceTitle {
+            display: block;
+            font-size: 12pt;
+            padding: 0 0 10px;
+        }
+
+        .Confirmation .Price .SubTotal {
+            display: block;
+        }
+
+        .Confirmation .Price .VAT {
+            display: block;
+        }
+
+        .Confirmation .Price .Total {
+            display: block;
+        }
+
+        .Confirmation .Price span {
+            display: inline-block;
+            /*color: #808080;*/
+            font-size: 9pt;
+        }
+
+        .Confirmation .Price p {
+            display: inline-block;
+            color: #808080;
+            font-size: 8pt;
+        }
+
+    .Confirmation .Checkout {
+        padding: 20px 0 0;
+        text-align: right;
+    }
+
+footer {
+    padding: 30px 0;
+    position: absolute;
+    bottom: 0;
+}
+
+    footer .logo {
+        height: 45px;
+        width: 72px;
+    }
+
+    footer .copyright {
+        display: inline-block;
+        padding: 10px 0 0 20px;
+        font-size: 10pt;
+        color: #c8c8c8;
+    }

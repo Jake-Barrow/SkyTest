@@ -20,8 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha --require ./src/tests/helpers/browser.js --recursive ./src/tests -w",
-    "test2": "mocha -w ./src/tests/helpers/browser.js ./src/tests/*.test.js",
+    "test": "mocha -w ./src/tests/helpers/browser.js ./src/tests/*.test.js",
     "eject": "react-scripts eject"
   }
 }

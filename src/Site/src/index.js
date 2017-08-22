@@ -4,7 +4,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 // You can choose your kind of history here (e.g. browserHistory)
 
-import App from './App';
+import App from './components/App';
+import './App.css';
 
 ReactDOM.render(
     <App />,

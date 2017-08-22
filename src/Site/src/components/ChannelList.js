@@ -12,13 +12,13 @@ class ChannelList extends Component {
                             onChange={this.props.onchange}
                             defaultChecked={item.Selected}
                         />
-                        {item.Name}
+                        <span>{item.Name}</span>
                     </label>
                 </li>);
         });
 
         return (
-            <div className='ChannelList col-md-3'>
+            <div className='ChannelList'>
                 <p>{this.props.category}</p>
                 <div className='Category'>
                     <ul>

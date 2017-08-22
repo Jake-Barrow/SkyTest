@@ -25,16 +25,28 @@ class Confirmation extends Component {
 
 
         return (
-            <div className='Confirmation'>
-                <div className='Customer'>
-                    {this.state.customer}
+            <div className='col-md-offset-3 col-md-6'>
+                <div className='Confirmation'>
+                    <div className='Customer'>
+                        Customer ID:
+                        <span>{this.state.customer}</span>
+                    </div>
+                    <span className='Products'>Products</span>
+                    <ul>
+                        {channels}
+                    </ul>
+                    <div className='Price'>
+                        <span className='PriceTitle'>Price</span>
+                        <span className='SubTotal'>Sub Total: <p>£0.00</p></span>
+                        <span className='VAT'>VAT (20%): <p>£0.00</p></span>
+                        <span className='Total'>Total: <p>£0.00</p></span>
+                    </div>
+                    <div className='Checkout'>
+                        <button type='button' className='btn btn-success'>
+                            Checkout
+                        </button>
+                    </div>
                 </div>
-                <ul>
-                    {channels}
-                </ul>
-                <button type='button' className='btn btn-success'>
-                    Checkout
-                </button>
             </div>
         );
     }

@@ -4,7 +4,7 @@ require('babel-register')();
 const { JSDOM } = require('jsdom');
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>', {
-    url: 'http://localhost'
+    url: 'http://localhost:3000'
 });
 const { window } = jsdom;
 

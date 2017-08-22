@@ -13,6 +13,7 @@ class Authenticate extends Component {
         var self = this;
         $.ajax("http://localhost:8080/customers", {
             method: 'GET',
+            crossDomain: true,
             success: function (r) {
                 self.setState({ customers: JSON.parse(r) });
             }
@@ -25,6 +26,7 @@ class Authenticate extends Component {
 
         $.ajax("http://localhost:8080/customerLocationService/getLocationForCustomer/" + customerSelection, {
             method: 'GET',
+            crossDomain: true,
             success: function (r) {
                 var customer = JSON.parse(r);
 
@@ -52,7 +54,11 @@ class Authenticate extends Component {
 
         return (
             <div className='Authenticate container'>
-                <ul>{customers}</ul>
+                
+                <ul>
+                    <li>Stored Customers</li>
+                    {customers}
+                </ul>
                 <div className='SelectCustomer'>
                     <p>Please select a customer to continue:</p>
                     <select id='customerSelection' className='form-control'>
