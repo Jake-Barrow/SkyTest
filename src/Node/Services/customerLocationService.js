@@ -19,12 +19,12 @@ CustomerLocationService.prototype.Customers = [
         Location: 'LIVERPOOL'
     },
     {
-        Id: '6A43DA9E-83AF-485E-8561-AFF0263D2663',
-        Location: 'BIRMINGHAM'
-    },
-    {
         Id: 'AAF52702-2EF1-405A-B562-681516E6064A',
         Location: 'NEWCASTLE'
+    },
+    {
+        Id: '6A43DA9E-83AF-485E-8561-AFF0263D2663',
+        Location: 'BIRMINGHAM'
     }
 ];
 

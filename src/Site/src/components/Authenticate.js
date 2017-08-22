@@ -5,7 +5,7 @@ class Authenticate extends Component {
     constructor() {
         super();
 
-        this.state = { customers: [] };
+        this.state = { customers: [], error: '' };
         this.continue = this.continue.bind(this);
     }
 
@@ -17,12 +17,23 @@ class Authenticate extends Component {
             success: function (r) {
                 var result = JSON.parse(r);
 
+                if (result.error !== undefined && result.error !== '') {
+                    self.setState({ error: result.error });
+                    return;
+                }
+
                 result.push({
-                    Id: '120546B9-C29C-4BC9-897B-0D7CEBA96419',
-                    Location: 'LONDON'
+                    Id: 'A58C27D3-3248-434F-AFAD-EFE788C86D9B',
+                    Location: 'LEEDS'
                 });
 
-                self.setState({ customers: JSON.parse(r) });
+                self.setState({ customers: result });
+            },
+            error: function (e, x, r) {
+                if (e.statusText !== undefined && e.statusText !== '') {
+                    self.setState({ error: e.statusText });
+                    return;
+                }
             }
         });
     }
@@ -35,12 +46,23 @@ class Authenticate extends Component {
             method: 'GET',
             crossDomain: true,
             success: function (r) {
-                var customer = JSON.parse(r);
+                var result = JSON.parse(r);
+
+                if (result.error !== undefined && result.error !== '') {
+                    self.setState({ error: result.error });
+                    return;
+                }
 
                 self.props.history.push({
                     pathname: "/select-products",
-                    state: { location: customer.Location, customer: customer.Id }
+                    state: { location: result.Location, customer: result.Id }
                 });
+            },
+            error: function (e, x, r) {
+                if (e.statusText !== undefined && e.statusText !== '') {
+                    self.setState({ error: e.statusText });
+                    return;
+                }
             }
         });
     }
@@ -61,7 +83,6 @@ class Authenticate extends Component {
 
         return (
             <div className='Authenticate container'>
-                
                 <ul>
                     <li>Stored Customers</li>
                     {customers}
@@ -71,9 +92,12 @@ class Authenticate extends Component {
                     <select id='customerSelection' className='form-control'>
                         {customersOptions}
                     </select>
-                    <button type='button' className='btn btn-success' onClick={() => { this.continue(this); }}>
+                    <button type='button' className='btn btn-success' onClick={this.continue}>
                         Continue
                     </button>
+                    <div className='Error'>
+                        <p>{this.state.error}</p>
+                    </div>
                 </div>
             </div>
         );
