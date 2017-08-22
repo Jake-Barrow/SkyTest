@@ -17,16 +17,21 @@ class ChannelList extends Component {
                 </li>);
         });
 
-        return (
-            <div className='ChannelList'>
-                <p>{this.props.category}</p>
-                <div className='Category'>
-                    <ul>
-                        {channels}
-                    </ul>
-                </div>
-            </div>
-        );
+        if (this.props.channels !== undefined && this.props.channels.length > 0) {
+            return (
+                <div className='col-md-4' >
+                    <div className='ChannelList'>
+                        <p>{this.props.category}</p>
+                        <div className='Category'>
+                            <ul>
+                                {channels}
+                            </ul>
+                        </div>
+                    </div>
+                </div>);
+        } else {
+            return null;
+        }
     }
 }
 

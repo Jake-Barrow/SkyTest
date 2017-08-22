@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 
-import logo from '../../images/sky-logo.png';
-
 class Header extends Component {
     render() {
         return (
             <header className='sky-header'>
-                <img src={logo} className='logo' />
+                <i className='logo' />
                 <div className='nav'>
                     <ul>
                         <li>Home</li>

@@ -7,7 +7,7 @@ class SelectProducts extends Component {
     constructor() {
         super();
 
-        this.state = { location: '', channels: [], selectedChannels: [] };
+        this.state = { location: '', channels: [], selectedChannels: [], error: '' };
         this.onChannelSelectionChanged = this.onChannelSelectionChanged.bind(this);
         this.confirm = this.confirm.bind(this);
     }
@@ -21,12 +21,18 @@ class SelectProducts extends Component {
             method: 'GET',
             crossDomain: true,
             success: function (r) {
-                self.setState({
-                    location: locale,
-                    customer: customer,
-                    channels: JSON.parse(r),
-                    selectedChannels: SelectedProductsStore.get(locale)
-                });
+                var result = JSON.parse(r);
+
+                if (result.error !== undefined && result.error !== '') {
+                    self.setState({ error: result.error });
+                } else {
+                    self.setState({
+                        location: locale,
+                        customer: customer,
+                        channels: result,
+                        selectedChannels: SelectedProductsStore.get(locale)
+                    });
+                }
             }
         });
     }
@@ -64,6 +70,13 @@ class SelectProducts extends Component {
     }
 
     render() {
+        if (this.state.error !== undefined && this.state.error !== '') {
+            return (
+                <div className='Error'>
+                    <p>{this.state.error}</p>
+                </div>);
+        }
+
         var self = this;
         var sportsChannels = $.grep(this.state.channels, function (item, i) {
             var isInSelected = $.grep(self.state.selectedChannels, function (s, k) {
@@ -96,12 +109,8 @@ class SelectProducts extends Component {
                     Selected Location: <b>{this.state.location}</b>
                 </div>
                 <div className='row'>
-                    <div className='col-md-4'>
-                        <ChannelList category='Sports' channels={sportsChannels} onchange={this.onChannelSelectionChanged} />
-                    </div>
-                    <div className='col-md-4'>
-                        <ChannelList category='News' channels={newsChannels} onchange={this.onChannelSelectionChanged} />
-                    </div>
+                    <ChannelList category='Sports' channels={sportsChannels} onchange={this.onChannelSelectionChanged} />
+                    <ChannelList category='News' channels={newsChannels} onchange={this.onChannelSelectionChanged} />
                     <div className='col-md-4'>
                         <div className='Basket'>
                             <span className='Basket-Title'>Checkout Basket</span>

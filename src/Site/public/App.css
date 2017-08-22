@@ -11,6 +11,9 @@ header {
 }
 
     header .logo {
+        background: url(https://assets.sky.com/dist/latest/images/sky-logo.png) no-repeat;
+        background-size: contain;
+        display: inline-block;
         width: 100px;
         height: 63px;
     }
@@ -46,6 +49,12 @@ header {
                     color: black;
                     cursor: default;
                 }
+
+.Error {
+    font-size: 20pt;
+    color: #f16d6d;
+    text-align: center;
+}
 
 .Authenticate {
     text-align: center;
@@ -236,8 +245,12 @@ footer {
 }
 
     footer .logo {
+        background: url(https://assets.sky.com/dist/latest/images/sky-logo.png) no-repeat;
+        background-size: contain;
         height: 45px;
         width: 72px;
+        display: inline-block;
+        vertical-align: middle;
     }
 
     footer .copyright {

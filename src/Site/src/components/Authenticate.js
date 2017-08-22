@@ -15,6 +15,13 @@ class Authenticate extends Component {
             method: 'GET',
             crossDomain: true,
             success: function (r) {
+                var result = JSON.parse(r);
+
+                result.push({
+                    Id: '120546B9-C29C-4BC9-897B-0D7CEBA96419',
+                    Location: 'LONDON'
+                });
+
                 self.setState({ customers: JSON.parse(r) });
             }
         });

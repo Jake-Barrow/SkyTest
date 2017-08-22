@@ -37,4 +37,13 @@ describe('<ChannelList />', function () {
 
         expect(wrapper.find('li')).to.have.length(4);
     });
+
+    it('renders null when no channels', function () {
+        const onSelectionChanged = function () { }
+        const channels = [];
+
+        const wrapper = shallow(<ChannelList channels={channels} onchange={onSelectionChanged} />);
+
+        expect(wrapper.get(0)).to.equal(null);
+    });
 });

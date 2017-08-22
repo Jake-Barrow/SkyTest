@@ -11,11 +11,13 @@ CatalogueService.prototype.Errors = {
 
 CatalogueService.prototype.Locations = [
     'LONDON',
-    'LIVERPOOL'
+    'LIVERPOOL',
+    'NEWCASTLE'
 ];
 
 CatalogueService.prototype.Channels = [
     {
+        Id: 'E45A8C4E-E0C6-417E-8C0F-84D1713BAD74',
         Category: 'Sports',
         Name: 'Arsenal TV',
         Locations: ['LONDON']

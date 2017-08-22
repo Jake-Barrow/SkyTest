@@ -26,6 +26,11 @@ describe('<Authenticate />', function () {
         expect(wrapper.find('select')).to.have.length(1);
     });
 
+    it('select box has only 1 option', function () {
+        const wrapper = mount(<Authenticate />);
+        expect(wrapper.find('select option')).to.have.length(1);
+    });
+
     it('should have a button to continue', function () {
         const wrapper = shallow(<Authenticate />);
         expect(wrapper.find('button')).to.have.length(1);
